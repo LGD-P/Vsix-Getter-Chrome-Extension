@@ -9,7 +9,7 @@ async function buildVsixDict(url) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         const script = doc.querySelector('script.jiContent');
-        if (!script) throw new Error("Script introuvable");
+        if (!script) throw new Error("Not available here.");
         const data = JSON.parse(script.textContent);
         const publisher = data.Resources.PublisherName;
         const extName = data.Resources.ExtensionName;
@@ -42,7 +42,7 @@ async function downloadFromUrlAndRename(url) {
             a.click();
             document.body.removeChild(a);
             window.URL.revokeObjectURL(blobUrl);
-            showPopup("Download done !", "success");
+            
         }
     } catch (e) {
         console.error("Download error :", e);

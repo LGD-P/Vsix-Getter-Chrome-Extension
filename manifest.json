@@ -1,32 +1,39 @@
 {
   "manifest_version": 3,
   "name": "VSIX Downloader",
-  "description": "Download easily VSCode extensions formatted .vsix from the Marketplace.",
+  "description": "Quickly download VS Code extensions as .vsix files from the Marketplace for easy local installation.",
   "version": "1.0",
-  "icons": {
-    "16": "assets/logo-16.ico",   
-    "48": "assets/logo-48.ico",   
-    "128": "assets/logo-128.ico",
-    "256": "assets/logo-256.ico"   
-  },
-  "permissions": [
-    "activeTab"
-  ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "assets/logo-16.ico",
-      "48": "assets/logo-48.ico",
-      "128": "assets/logo-128.ico",
-      "256": "assets/logo-256.ico"
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "vsix-downloader@example.com",
+      "data_collection_permissions": {
+        "required": ["none"],
+        "optional": []
+      }
     }
   },
+
+  "icons": {
+    "16": "assets/logo-16.png",
+    "48": "assets/logo-48.png",
+    "128": "assets/logo-128.png",
+    "256": "assets/logo-256.png"
+  },
+
+  "permissions": ["activeTab"],
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
   "content_scripts": [
     {
       "matches": ["https://marketplace.visualstudio.com/items?*"],
       "js": ["download.js"]
     }
   ],
+
   "host_permissions": [
     "https://*/*",
     "http://*/*"
