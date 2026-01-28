@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "VSIX Downloader",
   "description": "Quickly download VS Code extensions as .vsix files from the Marketplace for easy local installation.",
-  "version": "1.0",
+  "version": "1.1",
 
   "browser_specific_settings": {
     "gecko": {
